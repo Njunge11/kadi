@@ -1,0 +1,20 @@
+{
+  "name": "kadi",
+  "version": "1.0.0",
+  "description": "A flexible card number validation solution",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && node index.js"
+  },
+  "keywords": [
+    "javascript",
+    "card number validation",
+    "fintech"
+  ],
+  "author": "Njunge Njenga",
+  "license": "MIT",
+  "dependencies": {
+    "standard": "^11.0.1",
+    "webpack": "^4.14.0"
+  }
+}
