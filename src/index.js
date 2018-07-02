@@ -4,20 +4,20 @@
  * MIT Licensed
  * TO-DO - add input field formatting and SVG's
  */
-import ValidateCardNumber from './ValidateCardNumber'
-import ValidateExpiryDate from './ValidateExpiryDate'
-import ValidateCVC from './ValidateCVC'
+import ValidateCardNumber from '../lib/ValidateCardNumber'
+import ValidateExpiryDate from '../lib/ValidateExpiryDate'
+import ValidateCVC from '../lib/ValidateCVC'
 
-export default class Kadi {
-  validateCardNumber (cardNumber) {
-    return new ValidateCardNumber().validate(cardNumber)
-  }
-
-  validateExpiryDate (date) {
-    return new ValidateExpiryDate().validate(date)
-  }
-
-  validateCVC (cvcValue) {
-    return new ValidateCVC().validate(cvcValue)
-  }
+const validateCardNumber = (cardNumber) => {
+  return new ValidateCardNumber().validate(cardNumber)
 }
+
+const validateExpiryDate = (date) => {
+  return new ValidateExpiryDate().validate(date)
+}
+
+const validateCVC = (cvcValue) => {
+  return new ValidateCVC().validate(cvcValue)
+}
+
+export { validateCardNumber, validateExpiryDate, validateCVC }
