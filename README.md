@@ -1,2 +1,2 @@
 # kadi
-A flexible javascript card number validation solution
+A flexible client-side javascript card number validation solution
