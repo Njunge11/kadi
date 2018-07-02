@@ -1,9 +1,10 @@
-const Kadi = require('./lib/kadi')
-const card = new Kadi()
-// const cardNumber = '4242424242424242'
-// const cvc = undefined
-const expiryDate = '11/1999'
+/**
+ * Kadi
+ * Copyright(c) 2018 Njunge Njenga
+ * MIT Licensed
+ * TO-DO - add input field formatting and SVG's
+ */
 
-// console.log(card.validateCardNumber(cardNumber))
-// console.log(card.validateCVC(cvc))
-console.log(card.validateExpiryDate(expiryDate))
+'use strict'
+
+module.exports = require('./lib/kadi')
