@@ -4,14 +4,11 @@
  * MIT Licensed
  * TO-DO - add input field formatting and SVG's
  */
+import ValidateCardNumber from './ValidateCardNumber'
+import ValidateExpiryDate from './ValidateExpiryDate'
+import ValidateCVC from './ValidateCVC'
 
-'use strict'
-
-const ValidateCardNumber = require('./validate-card-number')
-const ValidateExpiryDate = require('./validate-expiry-date')
-const ValidateCVC = require('./validate-cvc')
-
-module.exports = class Kadi {
+export default class Kadi {
   validateCardNumber (cardNumber) {
     return new ValidateCardNumber().validate(cardNumber)
   }
