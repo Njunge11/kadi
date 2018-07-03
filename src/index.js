@@ -7,6 +7,7 @@
 import ValidateCardNumber from '../lib/ValidateCardNumber'
 import ValidateExpiryDate from '../lib/ValidateExpiryDate'
 import ValidateCVC from '../lib/ValidateCVC'
+import FormatCardInput from '../lib/FormatCardInput'
 
 const validateCardNumber = (cardNumber) => {
   return new ValidateCardNumber().validate(cardNumber)
@@ -20,4 +21,12 @@ const validateCVC = (cvcValue) => {
   return new ValidateCVC().validate(cvcValue)
 }
 
-export { validateCardNumber, validateExpiryDate, validateCVC }
+const formatCardInput = (value) => {
+  window.onload = () => {
+    document.querySelector('#' + value).oninput = (e) => {
+      e.target.value = new FormatCardInput().format(e.target.value)
+    }
+  }
+}
+
+export { validateCardNumber, validateExpiryDate, validateCVC, formatCardInput }

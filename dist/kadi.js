@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fcfb58c2797c2fa7cc48"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "62a991dd7370991e1e09"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -813,6 +813,18 @@ eval("/**\n * Kadi\n * Copyright(c) 2018 Njunge Njenga\n * MIT Licensed\n */\n\n
 
 /***/ }),
 
+/***/ "./lib/FormatCardInput.js":
+/*!********************************!*\
+  !*** ./lib/FormatCardInput.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar FormatCardInput = function () {\n  function FormatCardInput() {\n    _classCallCheck(this, FormatCardInput);\n  }\n\n  _createClass(FormatCardInput, [{\n    key: 'format',\n    value: function format(value) {\n      var v = value.replace(/\\s+/g, '').replace(/[^0-9]/gi, '');\n      var matches = v.match(/\\d{4,16}/g);\n      var match = matches && matches[0] || '';\n      var parts = [];\n      var i = void 0;\n      var len = void 0;\n      for (i = 0, len = match.length; i < len; i += 4) {\n        parts.push(match.substring(i, i + 4));\n      }\n      if (parts.length) {\n        return parts.join(' ');\n      } else {\n        return value;\n      }\n    }\n  }]);\n\n  return FormatCardInput;\n}();\n\nexports.default = FormatCardInput;\n\n//# sourceURL=webpack://Kadi/./lib/FormatCardInput.js?");
+
+/***/ }),
+
 /***/ "./lib/ValidateCVC.js":
 /*!****************************!*\
   !*** ./lib/ValidateCVC.js ***!
@@ -857,7 +869,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.validateCVC = exports.validateExpiryDate = exports.validateCardNumber = undefined;\n\nvar _ValidateCardNumber = __webpack_require__(/*! ../lib/ValidateCardNumber */ \"./lib/ValidateCardNumber.js\");\n\nvar _ValidateCardNumber2 = _interopRequireDefault(_ValidateCardNumber);\n\nvar _ValidateExpiryDate = __webpack_require__(/*! ../lib/ValidateExpiryDate */ \"./lib/ValidateExpiryDate.js\");\n\nvar _ValidateExpiryDate2 = _interopRequireDefault(_ValidateExpiryDate);\n\nvar _ValidateCVC = __webpack_require__(/*! ../lib/ValidateCVC */ \"./lib/ValidateCVC.js\");\n\nvar _ValidateCVC2 = _interopRequireDefault(_ValidateCVC);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar validateCardNumber = function validateCardNumber(cardNumber) {\n  return new _ValidateCardNumber2.default().validate(cardNumber);\n}; /**\n    * Kadi\n    * Copyright(c) 2018 Njunge Njenga\n    * MIT Licensed\n    * TO-DO - add input field formatting and SVG's\n    */\n\n\nvar validateExpiryDate = function validateExpiryDate(date) {\n  return new _ValidateExpiryDate2.default().validate(date);\n};\n\nvar validateCVC = function validateCVC(cvcValue) {\n  return new _ValidateCVC2.default().validate(cvcValue);\n};\n\nexports.validateCardNumber = validateCardNumber;\nexports.validateExpiryDate = validateExpiryDate;\nexports.validateCVC = validateCVC;\n\n//# sourceURL=webpack://Kadi/./src/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.formatCardInput = exports.validateCVC = exports.validateExpiryDate = exports.validateCardNumber = undefined;\n\nvar _ValidateCardNumber = __webpack_require__(/*! ../lib/ValidateCardNumber */ \"./lib/ValidateCardNumber.js\");\n\nvar _ValidateCardNumber2 = _interopRequireDefault(_ValidateCardNumber);\n\nvar _ValidateExpiryDate = __webpack_require__(/*! ../lib/ValidateExpiryDate */ \"./lib/ValidateExpiryDate.js\");\n\nvar _ValidateExpiryDate2 = _interopRequireDefault(_ValidateExpiryDate);\n\nvar _ValidateCVC = __webpack_require__(/*! ../lib/ValidateCVC */ \"./lib/ValidateCVC.js\");\n\nvar _ValidateCVC2 = _interopRequireDefault(_ValidateCVC);\n\nvar _FormatCardInput = __webpack_require__(/*! ../lib/FormatCardInput */ \"./lib/FormatCardInput.js\");\n\nvar _FormatCardInput2 = _interopRequireDefault(_FormatCardInput);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n/**\n * Kadi\n * Copyright(c) 2018 Njunge Njenga\n * MIT Licensed\n * TO-DO - add input field formatting and SVG's\n */\nvar validateCardNumber = function validateCardNumber(cardNumber) {\n  return new _ValidateCardNumber2.default().validate(cardNumber);\n};\n\nvar validateExpiryDate = function validateExpiryDate(date) {\n  return new _ValidateExpiryDate2.default().validate(date);\n};\n\nvar validateCVC = function validateCVC(cvcValue) {\n  return new _ValidateCVC2.default().validate(cvcValue);\n};\n\nvar formatCardInput = function formatCardInput(value) {\n  window.onload = function () {\n    document.querySelector('#' + value).oninput = function (e) {\n      console.log(e.target.value);\n      e.target.value = new _FormatCardInput2.default().format(e.target.value);\n    };\n  };\n};\n\nexports.validateCardNumber = validateCardNumber;\nexports.validateExpiryDate = validateExpiryDate;\nexports.validateCVC = validateCVC;\nexports.formatCardInput = formatCardInput;\n\n//# sourceURL=webpack://Kadi/./src/index.js?");
 
 /***/ })
 
