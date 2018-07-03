@@ -5,16 +5,21 @@
 </head>
 
 <body>
-    <input name='number' id='number' value=''/>
+    <form>
+        <input name='number' id='number' placeholder="Card Number" />
+        <button id='card-button'>PAY NOW</button>
+    </form>
     <script type='text/javascript' src='dist/kadi.js'></script>
     <script>
+        Kadi.formatCardInput('number')
+        document.querySelector('#card-button').addEventListener('click', () => {
+            const cardNumber = document.getElementById('number').value
+            console.log(cardNumber)
+            console.log(Kadi.validateCardNumber(cardNumber))
+        })
         const cardNumber = '4242424242424242'
         const expiryDate = '10/2018'
         const cvc = '1242'
-        console.log(Kadi.validateCardNumber(cardNumber))
-        console.log(Kadi.validateExpiryDate(expiryDate))
-        console.log(Kadi.validateCVC(cvc))
-        Kadi.formatCardInput('number')
     </script>
 </body>
 
