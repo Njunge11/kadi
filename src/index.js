@@ -9,8 +9,18 @@ import ValidateExpiryDate from '../lib/ValidateExpiryDate'
 import ValidateCVC from '../lib/ValidateCVC'
 import FormatCardInput from '../lib/FormatCardInput'
 
-const validateCardNumber = (cardNumber) => {
-  return new ValidateCardNumber().validate(cardNumber)
+const validateCardNumber = (options, result) => {
+  const cardNumber = options.cardNumber
+  if (options.onInput) {
+    document.querySelector('#' + options.element).onkeyup = (e) => {
+      return result(new ValidateCardNumber().validate(e.target.value.replace(/\s/g, '')))
+    }
+    document.querySelector('#' + options.element).onkeydown = (e) => {
+      return result(new ValidateCardNumber().validate(e.target.value.replace(/\s/g, '')))
+    }
+  }
+
+  return new ValidateCardNumber().validate(cardNumber ? cardNumber.replace(/\s/g, '') : '')
 }
 
 const validateExpiryDate = (date) => {
@@ -21,12 +31,16 @@ const validateCVC = (cvcValue) => {
   return new ValidateCVC().validate(cvcValue)
 }
 
-const formatCardInput = (value) => {
-  window.onload = () => {
-    document.querySelector('#' + value).oninput = (e) => {
-      e.target.value = new FormatCardInput().format(e.target.value)
-    }
+const validateCardNumberRegex = (cardNumber) => {
+  return new ValidateCardNumber().regexCheck(cardNumber)
+}
+
+const formatCardInput = (id) => {
+  document.querySelector('#' + id).oninput = (e) => {
+    const card = new FormatCardInput()
+    e.target.value = card.format(e.target.value) // format input
+    card.test(e.target.value, id) // append image
   }
 }
 
-export { validateCardNumber, validateExpiryDate, validateCVC, formatCardInput }
+export { validateCardNumber, validateExpiryDate, validateCVC, formatCardInput, validateCardNumberRegex }

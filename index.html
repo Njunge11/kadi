@@ -2,24 +2,76 @@
 
 <head>
     <title>kadi.js v1</title>
+    <style>
+        .kadi {
+            position: relative;
+        }
+        
+        .kadi::before {
+            content: "";
+            position: absolute;
+            right: 5px;
+            top: -2px;
+            bottom: 0;
+            width: 40px;
+            height: 25px;
+            background-color: #fff;
+            background: inherit;
+            -webkit-animation-name: fadeInLeft;
+            animation-name: fadeInLeft;
+            -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+        
+        @-webkit-keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                -webkit-transform: translate3d(-100%, 0, 0);
+                transform: translate3d(-100%, 0, 0);
+            }
+            to {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                -webkit-transform: translate3d(-100%, 0, 0);
+                transform: translate3d(-100%, 0, 0);
+            }
+            to {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+        
+        .fadeInLeft {
+            -webkit-animation-name: fadeInLeft;
+            animation-name: fadeInLeft;
+        }
+        
+        input {
+            padding: 10px 30px;
+        }
+    </style>
 </head>
 
 <body>
-    <form>
-        <input name='number' id='number' placeholder="Card Number" />
-        <button id='card-button'>PAY NOW</button>
+    <form class='kadi-container'>
+        <input id='number' value="" type="text" placeholder="Card Number">
     </form>
     <script type='text/javascript' src='dist/kadi.js'></script>
     <script>
         Kadi.formatCardInput('number')
-        document.querySelector('#card-button').addEventListener('click', () => {
-            const cardNumber = document.getElementById('number').value
-            console.log(cardNumber)
-            console.log(Kadi.validateCardNumber(cardNumber))
+        Kadi.validateCardNumber({cardNumber:false, onInput:true, element:'number'}, (result)=>{
+        result.valid ? console.log('the card number is valid'):console.log('the card number is invalid')    
         })
-        const cardNumber = '4242424242424242'
-        const expiryDate = '10/2018'
-        const cvc = '1242'
     </script>
 </body>
 

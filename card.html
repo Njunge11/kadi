@@ -1,0 +1,38 @@
+
+<head>
+<meta charset="utf-8">
+<title>CC Formatter</title>
+</head>
+
+<body>
+<form>
+  <input id="cc" value="" placeholder="1234 1234 1234 1234">
+</form>
+<p>Type some sample credit card numbers in the box above and it should
+automatically format it nicely.</p>
+<p>Go back to the <a href="/plog/cc-formatter">blog post</a></p>
+<script>
+function cc_format(value) {
+  var v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '')
+  var matches = v.match(/\d{4,16}/g);
+  var match = matches && matches[0] || ''
+  var parts = []
+  for (i=0, len=match.length; i<len; i+=4) {
+    parts.push(match.substring(i, i+4))
+  }
+  if (parts.length) {
+    return parts.join(' ')
+  } else {
+    return value
+  }
+}
+
+onload = function() {
+  document.getElementById('cc').oninput = function() {
+    this.value = cc_format(this.value)
+  }
+}
+</script>
+
+
+</body>
