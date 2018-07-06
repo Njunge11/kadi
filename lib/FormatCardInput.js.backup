@@ -16,17 +16,33 @@ export default class FormatCardInput {
     }
   }
 
-  test (number, className) {
+  toArray (obj) {
+    var l = obj.length
+    var i
+    var out = []
+    for (i = 0; i < l; i++) out[i] = obj[i]
+    return out
+  }
+
+  test (number, id) {
     const a = this.addLabel(number)
     if (a) {
       if (!document.querySelector('.kadi')) {
         const label = document.createElement('label')
         label.className = 'kadi'
         label.setAttribute('style', this.getCardImage(number))
-        label.appendChild(document.querySelector('.' + className))
-        label.setAttribute('style', this.getCardImage(number))
-        document.querySelector('.kadi-card-container').appendChild(label)
-        document.querySelector('.' + className).focus()
+        // label.appendChild(document.querySelector('#' + id))
+        // label.setAttribute('style', this.getCardImage(number))
+        // document.querySelector('.kadi-container').appendChild(label)
+        const children = document.querySelector('.kadi-container').childNodes
+        const arr = this.toArray(children)
+        var frag = document.createDocumentFragment()
+        for (var i = 0; i < arr.length; ++i) {
+          frag.appendChild(arr[i])
+        }
+        label.appendChild(frag)
+        document.querySelector('.kadi-container').appendChild(label)
+        document.querySelector('#' + id).focus()
       }
     } else {
       if (document.querySelector('.kadi')) {
@@ -36,7 +52,7 @@ export default class FormatCardInput {
           fragment.appendChild(element.firstChild)
         }
         element.parentNode.replaceChild(fragment, element)
-        document.querySelector('.' + className).focus()
+        document.querySelector('#' + id).focus()
       }
     }
   }

@@ -12,10 +12,10 @@ import FormatCardInput from '../lib/FormatCardInput'
 const validateCardNumber = (options, result) => {
   const cardNumber = options.cardNumber
   if (options.onInput) {
-    document.querySelector('#' + options.element).onkeyup = (e) => {
+    document.querySelector('.' + options.element).onkeyup = (e) => {
       return result(new ValidateCardNumber().validate(e.target.value.replace(/\s/g, '')))
     }
-    document.querySelector('#' + options.element).onkeydown = (e) => {
+    document.querySelector('.' + options.element).onkeydown = (e) => {
       return result(new ValidateCardNumber().validate(e.target.value.replace(/\s/g, '')))
     }
   }
@@ -35,11 +35,11 @@ const validateCardNumberRegex = (cardNumber) => {
   return new ValidateCardNumber().regexCheck(cardNumber)
 }
 
-const formatCardInput = (id) => {
-  document.querySelector('#' + id).oninput = (e) => {
+const formatCardInput = (className) => {
+  document.querySelector('.' + className).oninput = (e) => {
     const card = new FormatCardInput()
     e.target.value = card.format(e.target.value) // format input
-    card.test(e.target.value, id) // append image
+    card.test(e.target.value, className) // append image
   }
 }
 
