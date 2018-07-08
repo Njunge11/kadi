@@ -15,6 +15,13 @@ Append your card input HTML element to a DIV containing the 'kadi-container' cla
 </div>
 ```
 ### Input masking
-```
+```javascript
 Kadi.formatCardInput('kadi-card-input')
+```
+### Card validation
+#### Validation on input
+```javascript
+  Kadi.validateCardNumber({cardNumber:'', onInput:true, element:'kadi-card-input'}, (result) => {
+            console.log(result)
+   })
 ```
