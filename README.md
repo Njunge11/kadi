@@ -18,10 +18,17 @@ Append your card input HTML element to a DIV containing the 'kadi-container' cla
 ```javascript
 Kadi.formatCardInput('kadi-card-input')
 ```
-### Card validation
+### Card validation - validateCardNumber()
+#### Standard validation
+This is suitable when you want to validate the card input on click of a button.
+```javascript
+Kadi.validateCardNumber({cardNumber:4111111111111111})
+```
 #### Validation on input
+Wan't to validate the card number on user input? Not to worry, we've got you covered!
 ```javascript
   Kadi.validateCardNumber({cardNumber:'', onInput:true, element:'kadi-card-input'}, (result) => {
             console.log(result)
    })
 ```
+
