@@ -5,11 +5,11 @@ A super simple and flexible client-side javascript library that provides card va
 $ npm i kadi
 ```
 ### Include Kadi.js
-```
+```html
 <script type='text/javascript' src='../dist/kadi.js'></script>
 ```
 Append your card input HTML element to a DIV containing the 'kadi-container' class. Also add the 'kadi-card-input' class in the input.
-```
+```html
 <div class='kadi-container'>
 <input type='text' class='kadi-card-input' id='card-number' placeholder='Card number'>
 </div>
