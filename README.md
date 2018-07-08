@@ -1,6 +1,6 @@
-# kadi
+# Kadi
 A super simple and flexible client-side javascript library that provides card validation, input masking and brand detection.
-# Installation
+### Installation
 ```
-npm i kadi
+$ npm i kadi
 ```
