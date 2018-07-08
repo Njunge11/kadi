@@ -14,15 +14,22 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin() // Enable HMR, of course
   ],
   module: {
-    rules: [{
-      test: /\.js$/, // Compile all .js files with Babel
-      exclude: /(node_modules|bower_components)/, // Do not transform npm  and bower packages, add other unwanted sources
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['env'] // Run all transforms
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' }
+        ]
+      },
+      {test: /\.js$/, // Compile all .js files with Babel
+        exclude: /(node_modules|bower_components)/, // Do not transform npm  and bower packages, add other unwanted sources
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env'] // Run all transforms
+          }
         }
-      }
-    }]
+      }]
   }
 }

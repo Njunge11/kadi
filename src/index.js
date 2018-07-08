@@ -8,6 +8,7 @@ import ValidateCardNumber from '../lib/ValidateCardNumber'
 import ValidateExpiryDate from '../lib/ValidateExpiryDate'
 import ValidateCVC from '../lib/ValidateCVC'
 import FormatCardInput from '../lib/FormatCardInput'
+import '../assets/css/kadi.css'
 
 const validateCardNumber = (options, result) => {
   if (!options) {
