@@ -11,11 +11,11 @@ import FormatCardInput from '../lib/FormatCardInput'
 
 const validateCardNumber = (options, result) => {
   if (!options) {
-    return {valid: false}
+    return { valid: false }
   }
 
   if (typeof options.cardNumber !== 'string') {
-    return {valid: false}
+    return { valid: false }
   }
   const cardNumber = options.cardNumber
   if (options.onInput) {
@@ -38,10 +38,6 @@ const validateCVC = (cvcValue) => {
   return new ValidateCVC().validate(cvcValue)
 }
 
-const validateCardNumberRegex = (cardNumber) => {
-  return new ValidateCardNumber().regexCheck(cardNumber)
-}
-
 const formatCardInput = (className) => {
   document.querySelector('.' + className).oninput = (e) => {
     const card = new FormatCardInput()
@@ -50,4 +46,4 @@ const formatCardInput = (className) => {
   }
 }
 
-export { validateCardNumber, validateExpiryDate, validateCVC, formatCardInput, validateCardNumberRegex }
+export { validateCardNumber, validateExpiryDate, validateCVC, formatCardInput }
