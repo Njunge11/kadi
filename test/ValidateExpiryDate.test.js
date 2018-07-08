@@ -37,18 +37,28 @@ describe('Card expiry date validation', () => {
     valid = validateExpiryDate(expiryDate)
     expect(valid).toBe(false)
   })
-  it('Past month and current year should return false', () => {
-    expiryDate = '06/2018'
+  it('Past month and past year(short) should return false', () => {
+    expiryDate = '06/09'
     valid = validateExpiryDate(expiryDate)
     expect(valid).toBe(false)
   })
   it('Past month and current year should return false', () => {
     expiryDate = '06/2018'
+    valid = validateExpiryDate(expiryDate)
+    expect(valid).toBe(false)
+  })
+  it('Past month and current year(short) should return false', () => {
+    expiryDate = '06/18'
     valid = validateExpiryDate(expiryDate)
     expect(valid).toBe(false)
   })
   it('Current month and past year should return false', () => {
     expiryDate = '07/2017'
+    valid = validateExpiryDate(expiryDate)
+    expect(valid).toBe(false)
+  })
+  it('Current month and past year(short) should return false', () => {
+    expiryDate = '07/17'
     valid = validateExpiryDate(expiryDate)
     expect(valid).toBe(false)
   })
@@ -61,6 +71,16 @@ describe('Card expiry date validation', () => {
     expiryDate = '09/2020'
     valid = validateExpiryDate(expiryDate)
     expect(valid).toBe(true)
+  })
+  it('Valid month and valid year(short) should return true', () => {
+    expiryDate = '09/20'
+    valid = validateExpiryDate(expiryDate)
+    expect(valid).toBe(true)
+  })
+  it("Expiry date that's not a string should return false", () => {
+    expiryDate = 92020
+    valid = validateExpiryDate(expiryDate)
+    expect(valid).toBe(false)
   })
   /**
        * 2.string that does not match regex (10/12)
