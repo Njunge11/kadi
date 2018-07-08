@@ -33,7 +33,6 @@ describe('Card CVC validation', () => {
   it('If CVC is not a string return false', () => {
     const cvc = 1234
     const valid = validateCVC(cvc)
-    console.log(valid)
     expect(valid).toBe(false)
   })
 })
