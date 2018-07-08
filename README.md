@@ -14,7 +14,7 @@ Append your card input HTML element to a DIV containing the 'kadi-container' cla
 <input type='text' class='kadi-card-input' id='card-number' placeholder='Card number'>
 </div>
 ```
-### Input masking
+### Input masking - maskCardInput()
 ```javascript
 Kadi.formatCardInput('kadi-card-input')
 ```
