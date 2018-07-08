@@ -31,8 +31,12 @@ Wan't to validate the card number on user input? Not to worry, we've got you cov
             console.log(result)
    })
 ```
-#### ExpiryDate validation - validateExpiryDate()
+### ExpiryDate validation - validateExpiryDate()
 ```javascript
 Kadi.validateExpiryDate('10/2029')
 ```
+### CVC validation - validateCVC()
+```javascript
+Kadi.validateCVC('123)
+``
 
