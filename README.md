@@ -38,5 +38,5 @@ Kadi.validateExpiryDate('10/2029')
 ### CVC validation - validateCVC()
 ```javascript
 Kadi.validateCVC('123')
-``
+```
 
