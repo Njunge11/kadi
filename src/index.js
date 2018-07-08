@@ -10,6 +10,13 @@ import ValidateCVC from '../lib/ValidateCVC'
 import FormatCardInput from '../lib/FormatCardInput'
 
 const validateCardNumber = (options, result) => {
+  if (!options) {
+    return {valid: false}
+  }
+
+  if (typeof options.cardNumber !== 'string') {
+    return {valid: false}
+  }
   const cardNumber = options.cardNumber
   if (options.onInput) {
     document.querySelector('.' + options.element).onkeyup = (e) => {
