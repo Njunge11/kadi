@@ -15,12 +15,12 @@ const validateCardNumber = (cardNumber) => {
   return new ValidateCardNumber().validate(cardNumber ? cardNumber.replace(/\s/g, '') : '')
 }
 
-const validateExpiryDate = (date) => {
-  return new ValidateExpiryDate().validate(date)
+const validateExpiryDate = (expiryDate) => {
+  return new ValidateExpiryDate().validate(expiryDate ? expiryDate.replace(/\s/g, '') : '')
 }
 
-const validateCVC = (cvcValue) => {
-  return new ValidateCVC().validate(cvcValue)
+const validateCVC = (cvc) => {
+  return new ValidateCVC().validate(cvc)
 }
 
 const formatCardNumberInput = (className) => {
