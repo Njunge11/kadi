@@ -8,26 +8,10 @@ import ValidateCardNumber from '../lib/ValidateCardNumber'
 import ValidateExpiryDate from '../lib/ValidateExpiryDate'
 import ValidateCVC from '../lib/ValidateCVC'
 import FormatCardInput from '../lib/FormatCardInput'
+import FormatExpiryDate from '../lib/FormatExpiryDate'
 import '../assets/css/kadi.css'
 
-const validateCardNumber = (options, result) => {
-  if (!options) {
-    return { valid: false }
-  }
-
-  if (typeof options.cardNumber !== 'string') {
-    return { valid: false }
-  }
-  const cardNumber = options.cardNumber
-  if (options.onInput) {
-    document.querySelector('.' + options.element).onkeyup = (e) => {
-      return result(new ValidateCardNumber().validate(e.target.value.replace(/\s/g, '')))
-    }
-    document.querySelector('.' + options.element).onkeydown = (e) => {
-      return result(new ValidateCardNumber().validate(e.target.value.replace(/\s/g, '')))
-    }
-  }
-
+const validateCardNumber = (cardNumber) => {
   return new ValidateCardNumber().validate(cardNumber ? cardNumber.replace(/\s/g, '') : '')
 }
 
@@ -39,7 +23,7 @@ const validateCVC = (cvcValue) => {
   return new ValidateCVC().validate(cvcValue)
 }
 
-const formatCardInput = (className) => {
+const formatCardNumberInput = (className) => {
   document.querySelector('.' + className).oninput = (e) => {
     const card = new FormatCardInput()
     e.target.value = card.format(e.target.value) // format input
@@ -47,4 +31,8 @@ const formatCardInput = (className) => {
   }
 }
 
-export { validateCardNumber, validateExpiryDate, validateCVC, formatCardInput }
+const formatExpiryDateInput = (className) => {
+  new FormatExpiryDate().format(className)
+}
+
+export { validateCardNumber, validateExpiryDate, validateCVC, formatCardNumberInput, formatExpiryDateInput }
