@@ -15,23 +15,23 @@ Append your card input HTML element to a DIV containing the 'kadi-container' cla
 </div>
 <input type='text' class='kadi-expiry-input' id='expiry-date' placeholder='MM / YY'>
 ```
-### Card number input masking - maskCardNumberInput()
+#### Card number input masking - maskCardNumberInput()
 ```javascript
 Kadi.maskCardNumberInput('kadi-card-input')
 ```
-### Card expiry date input masking - maskExpiryDateInput()
+#### Card expiry date input masking - maskExpiryDateInput()
 ```javascript
 Kadi.maskExpiryDateInput('kadi-expiry-input')
 ```
-### Card number validation - validateCardNumber()
+#### Card number validation - validateCardNumber()
 ```javascript
 Kadi.validateCardNumber('4111111111111111')
 ```
-### Card number expiry date validation - validateExpiryDate()
+#### Card number expiry date validation - validateExpiryDate()
 ```javascript
 Kadi.validateExpiryDate('10/2029')
 ```
-### CVC validation - validateCVC()
+#### CVC validation - validateCVC()
 ```javascript
 Kadi.validateCVC('123')
 ```
