@@ -14,24 +14,19 @@ Append your card input HTML element to a DIV containing the 'kadi-container' cla
 <input type='text' class='kadi-card-input' id='card-number' placeholder='Card number'>
 </div>
 ```
-### Input masking - maskCardInput()
+### Card number input masking - maskCardNumberInput()
 ```javascript
-Kadi.formatCardInput('kadi-card-input')
+Kadi.maskCardNumberInput('kadi-card-input')
 ```
-### Card validation - validateCardNumber()
-#### Standard validation 
-This is suitable when you want to validate the card input on click of a button.
+### Card expiry date input masking - maskExpiryDateInput()
 ```javascript
-Kadi.validateCardNumber({cardNumber:4111111111111111})
+Kadi.maskExpiryDateInput('kaid-expiry-input')
 ```
-#### Validation on input
-Wan't to validate the card number on user input? Not to worry, we've got you covered!
+### Card number validation - validateCardNumber()
 ```javascript
-  Kadi.validateCardNumber({cardNumber:'', onInput:true, element:'kadi-card-input'}, (result) => {
-            console.log(result)
-   })
+Kadi.validateCardNumber('4111111111111111')
 ```
-### Card expiry validation - validateExpiryDate()
+### Card number expiry date validation - validateExpiryDate()
 ```javascript
 Kadi.validateExpiryDate('10/2029')
 ```
