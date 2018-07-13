@@ -21,7 +21,7 @@ Kadi.maskCardNumberInput('kadi-card-input')
 ```
 ### Card expiry date input masking - maskExpiryDateInput()
 ```javascript
-Kadi.maskExpiryDateInput('kaid-expiry-input')
+Kadi.maskExpiryDateInput('kadi-expiry-input')
 ```
 ### Card number validation - validateCardNumber()
 ```javascript
