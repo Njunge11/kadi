@@ -44,8 +44,7 @@ describe('Card number validation', () => {
   Object.keys(cardNumbers).map((number) => {
     const cardNumberArray = cardNumbers[number]
     cardNumberArray.map((card, index) => {
-      const count = index + 1
-      it('Valid ' + number + ' test card number ' + count + ' should return true', () => {
+      it('Valid ' + number + ' test card number ' + card + ' should return true', () => {
         validate = validateCardNumber(card)
         expect(validate.valid).toBe(true)
       })
