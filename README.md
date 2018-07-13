@@ -1,6 +1,6 @@
 # Kadi
 A super simple and flexible client-side javascript library that provides card validation, input masking and brand detection.
-### Installation
+### Installation (not published yet :-))
 ```
 $ npm i kadi
 ```
@@ -13,6 +13,7 @@ Append your card input HTML element to a DIV containing the 'kadi-container' cla
 <div class='kadi-container'>
 <input type='text' class='kadi-card-input' id='card-number' placeholder='Card number'>
 </div>
+<input type='text' class='kadi-expiry-input' id='expiry-date' placeholder='MM / YY'>
 ```
 ### Card number input masking - maskCardNumberInput()
 ```javascript
