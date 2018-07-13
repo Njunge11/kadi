@@ -15,7 +15,7 @@
     "start": "webpack-dev-server --open",
     "develop": "webpack --mode development --watch",
     "build": "webpack --mode production",
-    "test": "jest --verbose --coverage",
+    "test": "jest --verbose",
     "watch": "webpack -w"
   },
   "author": "Njunge Njenga",

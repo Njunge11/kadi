@@ -13,36 +13,32 @@ let cardNumbers = {
 describe('Card number validation', () => {
   it('Null card number should return false', () => {
     cardNumber = null
-    validate = validateCardNumber({ cardNumber: cardNumber, onInput: false })
+    validate = validateCardNumber(cardNumber)
     expect(validate.valid).toBe(false)
   })
   it('Empty card number should return false', () => {
     cardNumber = ''
-    validate = validateCardNumber({ cardNumber: cardNumber, onInput: false })
+    validate = validateCardNumber(cardNumber)
     expect(validate.valid).toBe(false)
   })
   it('Undefined card number should return false', () => {
     cardNumber = undefined
-    validate = validateCardNumber({ cardNumber: cardNumber, onInput: false })
+    validate = validateCardNumber(cardNumber)
     expect(validate.valid).toBe(false)
   })
   it("Card number that's not fully numeric should return false", () => {
     cardNumber = '424242424242424!'
-    validate = validateCardNumber({ cardNumber: cardNumber, onInput: false })
+    validate = validateCardNumber(cardNumber)
     expect(validate.valid).toBe(false)
   })
   it("Card number that's not a string should return false", () => {
     cardNumber = 4111111111111111
-    validate = validateCardNumber({ cardNumber: cardNumber, onInput: false })
+    validate = validateCardNumber(cardNumber)
     expect(validate.valid).toBe(false)
   })
   it('Invalid card number should return false', () => {
     cardNumber = '4111111111111112'
-    validate = validateCardNumber({ cardNumber: cardNumber, onInput: false })
-    expect(validate.valid).toBe(false)
-  })
-  it('When options are not provided return false', () => {
-    validate = validateCardNumber({})
+    validate = validateCardNumber(cardNumber)
     expect(validate.valid).toBe(false)
   })
   Object.keys(cardNumbers).map((number) => {
@@ -50,7 +46,7 @@ describe('Card number validation', () => {
     cardNumberArray.map((card, index) => {
       const count = index + 1
       it('Valid ' + number + ' test card number ' + count + ' should return true', () => {
-        validate = validateCardNumber({ cardNumber: card, onInput: false })
+        validate = validateCardNumber(card)
         expect(validate.valid).toBe(true)
       })
     })

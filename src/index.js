@@ -12,10 +12,16 @@ import FormatExpiryDate from '../lib/FormatExpiryDate'
 import '../assets/css/kadi.css'
 
 const validateCardNumber = (cardNumber) => {
-  return new ValidateCardNumber().validate(cardNumber ? cardNumber.replace(/\s/g, '') : '')
+  if (typeof cardNumber !== 'string' || !cardNumber) {
+    return {valid: false}
+  }
+  return new ValidateCardNumber().validate(cardNumber.replace(/\s/g, ''))
 }
 
 const validateExpiryDate = (expiryDate) => {
+  if (typeof expiryDate !== 'string' || !expiryDate) {
+    return false
+  }
   return new ValidateExpiryDate().validate(expiryDate ? expiryDate.replace(/\s/g, '') : '')
 }
 
